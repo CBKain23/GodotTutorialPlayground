@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://i6w3daheldue"]
+
+[ext_resource type="Texture2D" uid="uid://b2025lwem1k3v" path="res://Assets/Images/Characters/Enemies/Flying/fly.png" id="1_64eqq"]
+[ext_resource type="Script" uid="uid://cy33w5552cgnn" path="res://Scripts/Characters/Enemies/Flying/enemy.gd" id="1_lrrfw"]
+[ext_resource type="Texture2D" uid="uid://bx1jdcjdrjeov" path="res://Assets/Images/Characters/Enemies/Flying/fly_dead.png" id="2_lrrfw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_64eqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lrrfw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfnr1"]
+radius = 56.568542
+
+[node name="Enemy" type="Area2D" unique_id=1200585851]
+scale = Vector2(0.65, 0.65)
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_lrrfw")
+
+[node name="EnemySprite" type="AnimatedSprite2D" parent="." unique_id=1932859211]
+sprite_frames = SubResource("SpriteFrames_nfnr1")
+animation = &"idle"
+autoplay = "idle"
+frame = 1
+frame_progress = 0.4375733
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="." unique_id=31903577]
+shape = SubResource("CircleShape2D_nfnr1")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://d01wfkus47uhl"]
+
+[ext_resource type="Texture2D" uid="uid://cfsd113ic8ape" path="res://Assets/Images/Characters/Player/alienGreen_stand.png" id="1_bqsbk"]
+[ext_resource type="Script" uid="uid://cjf3mf6r4pj0n" path="res://Scripts/Characters/Player/player.gd" id="1_xf5fp"]
+[ext_resource type="Texture2D" uid="uid://382x4qlwoiii" path="res://Assets/Images/Characters/Player/alienGreen_jump.png" id="2_xf5fp"]
+[ext_resource type="Texture2D" uid="uid://bss0ikwm1wboq" path="res://Assets/Images/Characters/Player/alienGreen_walk1.png" id="3_osktb"]
+[ext_resource type="Texture2D" uid="uid://dspd8rqdeodwx" path="res://Assets/Images/Characters/Player/alienGreen_walk2.png" id="4_7vev3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_bqsbk")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xf5fp")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_osktb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7vev3")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfnr1"]
+radius = 56.0
+height = 192.0
+
+[node name="Player" type="CharacterBody2D" unique_id=1574511499 groups=["Player"]]
+scale = Vector2(0.7, 0.7)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_xf5fp")
+
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=44813521]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_nfnr1")
+animation = &"idle"
+frame_progress = 0.09625813
+offset = Vector2(0, -93.835)
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=2101573176]
+position = Vector2(0, -96)
+shape = SubResource("CapsuleShape2D_nfnr1")
+
+[node name="PlayerCamera" type="Camera2D" parent="." unique_id=214166694]
+offset = Vector2(0, -255)
+zoom = Vector2(0.57, 0.57)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=617793856]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906470910]
+root_node = NodePath("../AudioStreamPlayer")

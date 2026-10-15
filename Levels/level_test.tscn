@@ -2,6 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://bvn0407rtuccc" path="res://Assets/Images/Tiles/TileSets/new_tile_set.tres" id="1_3vr47"]
 [ext_resource type="Texture2D" uid="uid://blsyyllu7xbpv" path="res://Assets/Images/Backgrounds/colored_grass.png" id="1_7mba1"]
+[ext_resource type="PackedScene" uid="uid://d01wfkus47uhl" path="res://Characters/Player/player.tscn" id="3_soq8b"]
+[ext_resource type="PackedScene" uid="uid://i6w3daheldue" path="res://Characters/Enemies/Flying/enemy.tscn" id="4_sppqt"]
 
 [node name="Main" type="Node2D" unique_id=1956898016]
 
@@ -14,3 +16,11 @@ texture = ExtResource("1_7mba1")
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1607620267]
 tile_map_data = PackedByteArray("AAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAAVAAQAAAAAAAEAAAAWAAQAAAAAAAEAAAAaAAIAAAAAAAEAAAAbAAIAAAAAAAEAAAAcAAIAAAAAAAEAAAAdAAIAAAAAAAEAAAAeAAIAAAAAAAEAAAA=")
 tile_set = ExtResource("1_3vr47")
+
+[node name="Player" parent="." unique_id=1574511499 instance=ExtResource("3_soq8b")]
+position = Vector2(376, 384)
+
+[node name="Enemy" parent="." unique_id=1200585851 instance=ExtResource("4_sppqt")]
+position = Vector2(704.00006, 448.00003)
+move_direction = Vector2(0, -200)
+move_speed = 100.0
