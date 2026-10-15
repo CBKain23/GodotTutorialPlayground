@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal OnUpdateHealth(health : int)
+signal OnUpdateScore(score : int)
 
 ##The Player's Top Movement Speed
 @export var move_speed : float = 500.0
@@ -57,9 +59,23 @@ func _manage_animation():
 
 func take_damage(amount : int):
 	health -= amount
+	OnUpdateHealth.emit(health)
+	_damage_flash()
+	
 	
 	if health <= 0:
 		call_deferred("game_over")
 
 func game_over():
 	get_tree().reload_current_scene()
+
+func increase_score(amount: int):
+	print("increase score")
+	GameManager.score += amount
+	OnUpdateScore.emit(GameManager.score)
+
+
+func _damage_flash():
+	sprite.modulate = Color.RED
+	await get_tree().create_timer(0.05).timeout
+	sprite.modulate = Color.WHITE

@@ -5,18 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://d01wfkus47uhl" path="res://Characters/Player/player.tscn" id="3_soq8b"]
 [ext_resource type="PackedScene" uid="uid://i6w3daheldue" path="res://Characters/Enemies/Flying/enemy.tscn" id="4_sppqt"]
 [ext_resource type="PackedScene" uid="uid://c7hck0urcu2cc" path="res://Objects/Pickup/coin.tscn" id="5_3o0bi"]
+[ext_resource type="PackedScene" uid="uid://4eylshtuxfci" path="res://Objects/end_flag.tscn" id="6_oenlu"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3o0bi"]
+scenes/1/scene = ExtResource("5_3o0bi")
+
+[sub_resource type="TileSet" id="TileSet_3q0p6"]
+tile_size = Vector2i(60, 60)
+sources/0 = SubResource("TileSetScenesCollectionSource_3o0bi")
 
 [node name="Main" type="Node2D" unique_id=1956898016]
 
-[node name="ColoredGrass" type="Sprite2D" parent="." unique_id=1012697185]
+[node name="Background" type="Sprite2D" parent="." unique_id=1012697185]
 modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 position = Vector2(2080, 16)
 scale = Vector2(3.9921875, 3.9921875)
 texture = ExtResource("1_7mba1")
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1607620267]
+[node name="GroundTileLayer" type="TileMapLayer" parent="." unique_id=1607620267]
 tile_map_data = PackedByteArray("AAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAAVAAQAAAAAAAEAAAAWAAQAAAAAAAEAAAAaAAIAAAAAAAEAAAAbAAIAAAAAAAEAAAAcAAIAAAAAAAEAAAAdAAIAAAAAAAEAAAAeAAIAAAAAAAEAAAA=")
 tile_set = ExtResource("1_3vr47")
+
+[node name="CoinTileLayer" type="TileMapLayer" parent="." unique_id=1475294777]
+tile_map_data = PackedByteArray("AAAIAAUAAAAAAAAAAQAKAAUAAAAAAAAAAQAOAAUAAAAAAAAAAQAQAAUAAAAAAAAAAQASAAQAAAAAAAAAAQAVAAQAAAAAAAAAAQAcAAMAAAAAAAAAAQAeAAMAAAAAAAAAAQAgAAMAAAAAAAAAAQAfAAMAAAAAAAAAAQAdAAMAAAAAAAAAAQAhAAMAAAAAAAAAAQAiAAMAAAAAAAAAAQAjAAMAAAAAAAAAAQA=")
+tile_set = SubResource("TileSet_3q0p6")
 
 [node name="Player" parent="." unique_id=1574511499 instance=ExtResource("3_soq8b")]
 position = Vector2(376, 384)
@@ -31,5 +43,20 @@ position = Vector2(1520, 400.00003)
 move_direction = Vector2(0, -200)
 move_speed = 100.0
 
-[node name="Coin" parent="." unique_id=1488074619 instance=ExtResource("5_3o0bi")]
-position = Vector2(544, 328)
+[node name="EndFlag" parent="." unique_id=850257396 instance=ExtResource("6_oenlu")]
+position = Vector2(3904, 256)
+
+[connection signal="body_entered" from="CoinTileLayer/Coin" to="CoinTileLayer/Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179229" to="CoinTileLayer/@Area2D@179229" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179230" to="CoinTileLayer/@Area2D@179230" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179231" to="CoinTileLayer/@Area2D@179231" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179232" to="CoinTileLayer/@Area2D@179232" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179233" to="CoinTileLayer/@Area2D@179233" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179234" to="CoinTileLayer/@Area2D@179234" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179235" to="CoinTileLayer/@Area2D@179235" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179236" to="CoinTileLayer/@Area2D@179236" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179237" to="CoinTileLayer/@Area2D@179237" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179238" to="CoinTileLayer/@Area2D@179238" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179239" to="CoinTileLayer/@Area2D@179239" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179240" to="CoinTileLayer/@Area2D@179240" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@179241" to="CoinTileLayer/@Area2D@179241" method="_on_body_entered"]

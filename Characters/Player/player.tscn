@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://382x4qlwoiii" path="res://Assets/Images/Characters/Player/alienGreen_jump.png" id="2_xf5fp"]
 [ext_resource type="Texture2D" uid="uid://bss0ikwm1wboq" path="res://Assets/Images/Characters/Player/alienGreen_walk1.png" id="3_osktb"]
 [ext_resource type="Texture2D" uid="uid://dspd8rqdeodwx" path="res://Assets/Images/Characters/Player/alienGreen_walk2.png" id="4_7vev3"]
+[ext_resource type="Script" uid="uid://bqd5vfxtkdh2v" path="res://Scripts/Characters/Player/player_ui.gd" id="6_7vev3"]
+[ext_resource type="Texture2D" uid="uid://ddhbb1tyeix6u" path="res://Assets/Images/Heart.png" id="6_osktb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
 animations = [{
@@ -40,6 +42,11 @@ animations = [{
 radius = 56.0
 height = 192.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_osktb"]
+font_size = 36
+shadow_size = 14
+shadow_color = Color(0, 0, 0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=1574511499 groups=["Player"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
@@ -50,7 +57,7 @@ script = ExtResource("1_xf5fp")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_nfnr1")
 animation = &"idle"
-frame_progress = 0.09625813
+frame_progress = 0.21655068
 offset = Vector2(0, -93.835)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=2101573176]
@@ -65,3 +72,35 @@ zoom = Vector2(0.57, 0.57)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906470910]
 root_node = NodePath("../AudioStreamPlayer")
+
+[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=678833035]
+script = ExtResource("6_7vev3")
+
+[node name="HealthContainer" type="HBoxContainer" parent="PlayerUI" unique_id=110502114]
+unique_name_in_owner = true
+offset_right = 456.0
+offset_bottom = 128.19
+
+[node name="Heart" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1097362262]
+layout_mode = 2
+texture = ExtResource("6_osktb")
+expand_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1450183774]
+layout_mode = 2
+texture = ExtResource("6_osktb")
+expand_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1192492536]
+layout_mode = 2
+texture = ExtResource("6_osktb")
+expand_mode = 2
+
+[node name="ScoreText" type="Label" parent="PlayerUI" unique_id=1456919624]
+unique_name_in_owner = true
+offset_left = 24.0
+offset_top = 160.0
+offset_right = 432.0
+offset_bottom = 256.0
+text = "Score: 500"
+label_settings = SubResource("LabelSettings_osktb")
