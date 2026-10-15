@@ -1,0 +1,16 @@
+[gd_scene format=4 uid="uid://d15k7rppbq20s"]
+
+[ext_resource type="TileSet" uid="uid://bvn0407rtuccc" path="res://Assets/Images/Tiles/TileSets/new_tile_set.tres" id="1_3vr47"]
+[ext_resource type="Texture2D" uid="uid://blsyyllu7xbpv" path="res://Assets/Images/Backgrounds/colored_grass.png" id="1_7mba1"]
+
+[node name="Main" type="Node2D" unique_id=1956898016]
+
+[node name="ColoredGrass" type="Sprite2D" parent="." unique_id=1012697185]
+modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+position = Vector2(2080, 16)
+scale = Vector2(3.9921875, 3.9921875)
+texture = ExtResource("1_7mba1")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1607620267]
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAAVAAQAAAAAAAEAAAAWAAQAAAAAAAEAAAAaAAIAAAAAAAEAAAAbAAIAAAAAAAEAAAAcAAIAAAAAAAEAAAAdAAIAAAAAAAEAAAAeAAIAAAAAAAEAAAA=")
+tile_set = ExtResource("1_3vr47")
