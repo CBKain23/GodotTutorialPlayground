@@ -2,6 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://bvn0407rtuccc" path="res://Assets/Images/Tiles/TileSets/new_tile_set.tres" id="1_3vr47"]
 [ext_resource type="Texture2D" uid="uid://blsyyllu7xbpv" path="res://Assets/Images/Backgrounds/colored_grass.png" id="1_7mba1"]
+[ext_resource type="Script" uid="uid://gfq5m4u7nipp" path="res://Scripts/backgroundparallax.gd" id="1_q8e8m"]
 [ext_resource type="PackedScene" uid="uid://d01wfkus47uhl" path="res://Characters/Player/player.tscn" id="3_soq8b"]
 [ext_resource type="PackedScene" uid="uid://i6w3daheldue" path="res://Characters/Enemies/Flying/enemy.tscn" id="4_sppqt"]
 [ext_resource type="PackedScene" uid="uid://c7hck0urcu2cc" path="res://Objects/Pickup/coin.tscn" id="5_3o0bi"]
@@ -16,9 +17,32 @@ sources/0 = SubResource("TileSetScenesCollectionSource_3o0bi")
 
 [node name="Main" type="Node2D" unique_id=1956898016]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1012697185]
+[node name="Background" type="Node2D" parent="." unique_id=1635890122]
+scale = Vector2(0.47, 0.47)
+script = ExtResource("1_q8e8m")
+metadata/_edit_group_ = true
+
+[node name="Background" type="Sprite2D" parent="Background" unique_id=1012697185]
 modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
 position = Vector2(2080, 16)
+scale = Vector2(3.9921875, 3.9921875)
+texture = ExtResource("1_7mba1")
+
+[node name="Background3" type="Sprite2D" parent="Background" unique_id=2125130047]
+modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+position = Vector2(-2008.0002, 16)
+scale = Vector2(3.9921875, 3.9921875)
+texture = ExtResource("1_7mba1")
+
+[node name="Background2" type="Sprite2D" parent="Background" unique_id=1884004923]
+modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+position = Vector2(6168, 16)
+scale = Vector2(3.9921875, 3.9921875)
+texture = ExtResource("1_7mba1")
+
+[node name="Background4" type="Sprite2D" parent="Background" unique_id=862673775]
+modulate = Color(0.6255971, 0.6255971, 0.6255971, 1)
+position = Vector2(10256, 17)
 scale = Vector2(3.9921875, 3.9921875)
 texture = ExtResource("1_7mba1")
 
@@ -31,6 +55,7 @@ tile_map_data = PackedByteArray("AAAIAAUAAAAAAAAAAQAKAAUAAAAAAAAAAQAOAAUAAAAAAAA
 tile_set = SubResource("TileSet_3q0p6")
 
 [node name="Player" parent="." unique_id=1574511499 instance=ExtResource("3_soq8b")]
+unique_name_in_owner = true
 position = Vector2(376, 384)
 
 [node name="Enemy" parent="." unique_id=1200585851 instance=ExtResource("4_sppqt")]
@@ -47,16 +72,16 @@ move_speed = 100.0
 position = Vector2(3904, 256)
 
 [connection signal="body_entered" from="CoinTileLayer/Coin" to="CoinTileLayer/Coin" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179229" to="CoinTileLayer/@Area2D@179229" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179230" to="CoinTileLayer/@Area2D@179230" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179231" to="CoinTileLayer/@Area2D@179231" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179232" to="CoinTileLayer/@Area2D@179232" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179233" to="CoinTileLayer/@Area2D@179233" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179234" to="CoinTileLayer/@Area2D@179234" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179235" to="CoinTileLayer/@Area2D@179235" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179236" to="CoinTileLayer/@Area2D@179236" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179237" to="CoinTileLayer/@Area2D@179237" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179238" to="CoinTileLayer/@Area2D@179238" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179239" to="CoinTileLayer/@Area2D@179239" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179240" to="CoinTileLayer/@Area2D@179240" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@179241" to="CoinTileLayer/@Area2D@179241" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46454" to="CoinTileLayer/@Area2D@46454" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46455" to="CoinTileLayer/@Area2D@46455" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46456" to="CoinTileLayer/@Area2D@46456" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46457" to="CoinTileLayer/@Area2D@46457" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46458" to="CoinTileLayer/@Area2D@46458" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46459" to="CoinTileLayer/@Area2D@46459" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46460" to="CoinTileLayer/@Area2D@46460" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46461" to="CoinTileLayer/@Area2D@46461" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46462" to="CoinTileLayer/@Area2D@46462" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46463" to="CoinTileLayer/@Area2D@46463" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46464" to="CoinTileLayer/@Area2D@46464" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46465" to="CoinTileLayer/@Area2D@46465" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@46466" to="CoinTileLayer/@Area2D@46466" method="_on_body_entered"]

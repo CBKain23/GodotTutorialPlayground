@@ -22,6 +22,8 @@ var move_input : float
 
 @onready var sprite : AnimatedSprite2D = %PlayerSprite
 
+@onready var audio : AudioStreamPlayer = %AudioStreamPlayer
+
 func _process(delta: float) -> void:
 	
 	if velocity.x != 0:
@@ -62,17 +64,18 @@ func take_damage(amount : int):
 	OnUpdateHealth.emit(health)
 	_damage_flash()
 	
+	Audio.play_sound(Audio.take_damage_sfx, %AudioStreamPlayer)
 	
 	if health <= 0:
-		call_deferred("game_over")
+		GameManager.call_deferred("game_over")
 
-func game_over():
-	get_tree().reload_current_scene()
+
 
 func increase_score(amount: int):
 	print("increase score")
 	GameManager.score += amount
 	OnUpdateScore.emit(GameManager.score)
+	Audio.play_sound(Audio.coin_sfx, %AudioStreamPlayer)
 
 
 func _damage_flash():
