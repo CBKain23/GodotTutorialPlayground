@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dspd8rqdeodwx" path="res://Assets/Images/Characters/Player/alienGreen_walk2.png" id="4_7vev3"]
 [ext_resource type="Script" uid="uid://bqd5vfxtkdh2v" path="res://Scripts/Characters/Player/player_ui.gd" id="6_7vev3"]
 [ext_resource type="Script" uid="uid://8gfpq4r6jmr" path="res://Scripts/player_camera.gd" id="6_klx3t"]
-[ext_resource type="Texture2D" uid="uid://ddhbb1tyeix6u" path="res://Assets/Images/Heart.png" id="6_osktb"]
+[ext_resource type="PackedScene" uid="uid://c47wnv5n1ikj" path="res://Characters/Player/heart.tscn" id="8_klx3t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
 animations = [{
@@ -85,20 +85,9 @@ unique_name_in_owner = true
 offset_right = 200.0
 offset_bottom = 64.0
 
-[node name="Heart" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1097362262]
+[node name="Heart" parent="PlayerUI/HealthContainer" unique_id=1579208801 instance=ExtResource("8_klx3t")]
+unique_name_in_owner = true
 layout_mode = 2
-texture = ExtResource("6_osktb")
-expand_mode = 2
-
-[node name="Heart2" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1450183774]
-layout_mode = 2
-texture = ExtResource("6_osktb")
-expand_mode = 2
-
-[node name="Heart3" type="TextureRect" parent="PlayerUI/HealthContainer" unique_id=1192492536]
-layout_mode = 2
-texture = ExtResource("6_osktb")
-expand_mode = 2
 
 [node name="ScoreText" type="Label" parent="PlayerUI" unique_id=1456919624]
 unique_name_in_owner = true

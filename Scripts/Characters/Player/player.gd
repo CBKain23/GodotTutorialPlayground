@@ -16,7 +16,7 @@ signal OnUpdateScore(score : int)
 
 @export var jump_force : float = 400.0
 
-@export var health : int = 3
+var health : int = GameManager.playerHealth
 
 var move_input : float
 
@@ -48,6 +48,8 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 
+func _ready() -> void:
+	GameManager.setPlayer(self)
 
 func _manage_animation():
 	
@@ -64,7 +66,8 @@ func take_damage(amount : int):
 	OnUpdateHealth.emit(health)
 	_damage_flash()
 	
-	Audio.play_sound(Audio.take_damage_sfx, %AudioStreamPlayer)
+	#Audio.play_sound(Audio.take_damage_sfx, %AudioStreamPlayer)
+	Audio.play_sound(Audio.take_damage_sfx)
 	
 	if health <= 0:
 		GameManager.call_deferred("game_over")
@@ -72,10 +75,10 @@ func take_damage(amount : int):
 
 
 func increase_score(amount: int):
-	print("increase score")
+	print("increase score by " + str(amount))
 	GameManager.score += amount
 	OnUpdateScore.emit(GameManager.score)
-	Audio.play_sound(Audio.coin_sfx, %AudioStreamPlayer)
+	#Audio.play_sound(Audio.coin_sfx, %AudioStreamPlayer)
 
 
 func _damage_flash():

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c47wnv5n1ikj"]
+
+[ext_resource type="Texture2D" uid="uid://ddhbb1tyeix6u" path="res://Assets/Images/Heart.png" id="1_rcfpr"]
+
+[node name="Heart" type="TextureRect" unique_id=1579208801]
+texture = ExtResource("1_rcfpr")
+expand_mode = 2
