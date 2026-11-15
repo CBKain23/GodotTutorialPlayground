@@ -98,6 +98,8 @@ func jump():
 	
 	if Input.is_action_just_pressed("jump") and not is_on_floor() and not jump_count >= double_jump_limit:
 		velocity.y = -double_jump_force
+		%AudioStreamPlayer.stream = Audio.doubleJumpSFX
+		%AudioStreamPlayer.play()
 		jump_count  += 1
 		
 	

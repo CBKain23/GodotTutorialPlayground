@@ -26,6 +26,10 @@ window/size/viewport_width=1980
 window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godoban/plugin.cfg", "res://addons/godot_git/plugin.cfg", "res://addons/script-ide/plugin.cfg", "res://addons/xesa/ExposeThemProperties/plugin.cfg")
+
 [input]
 
 move_left={
