@@ -6,7 +6,7 @@ var scene_to_load : PackedScene = preload("uid://c7hck0urcu2cc")
 
 var player : CharacterBody2D
 
-var playerHealth : int = 3
+var playerHealth : int = 5
 
 func game_over():
 	get_tree().reload_current_scene()

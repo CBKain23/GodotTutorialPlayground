@@ -30,7 +30,7 @@ texture = ExtResource("1_7mba1")
 centered = false
 
 [node name="GroundTileLayer" type="TileMapLayer" parent="." unique_id=1607620267]
-tile_map_data = PackedByteArray("AAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAAVAAQAAAAAAAEAAAAWAAQAAAAAAAEAAAAaAAIAAAAAAAEAAAAbAAIAAAAAAAEAAAAcAAIAAAAAAAEAAAAdAAIAAAAAAAEAAAAeAAIAAAAAAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAAJAAMAAAAAAAEAAAAKAAMAAAAAAAEAAAANAAIAAAAAAAEAAAAOAAIAAAAAAAEAAAAPAAIAAAAAAAEAAAAQAAIAAAAAAAEAAAATAAQAAAAAAAEAAAAUAAQAAAAAAAEAAAAVAAQAAAAAAAEAAAAWAAQAAAAAAAEAAAA=")
 tile_set = ExtResource("1_3vr47")
 
 [node name="CoinTileLayer" type="TileMapLayer" parent="." unique_id=1475294777]
@@ -52,19 +52,19 @@ move_direction = Vector2(0, -200)
 move_speed = 100.0
 
 [node name="EndFlag" parent="." unique_id=850257396 instance=ExtResource("6_oenlu")]
-position = Vector2(3904, 256)
+position = Vector2(2896, 512)
 
 [connection signal="body_entered" from="CoinTileLayer/Coin" to="CoinTileLayer/Coin" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33886" to="CoinTileLayer/@Area2D@33886" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33887" to="CoinTileLayer/@Area2D@33887" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33888" to="CoinTileLayer/@Area2D@33888" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33889" to="CoinTileLayer/@Area2D@33889" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33890" to="CoinTileLayer/@Area2D@33890" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33891" to="CoinTileLayer/@Area2D@33891" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33892" to="CoinTileLayer/@Area2D@33892" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33893" to="CoinTileLayer/@Area2D@33893" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33894" to="CoinTileLayer/@Area2D@33894" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33895" to="CoinTileLayer/@Area2D@33895" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33896" to="CoinTileLayer/@Area2D@33896" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33897" to="CoinTileLayer/@Area2D@33897" method="_on_body_entered"]
-[connection signal="body_entered" from="CoinTileLayer/@Area2D@33898" to="CoinTileLayer/@Area2D@33898" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26049" to="CoinTileLayer/@Area2D@26049" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26050" to="CoinTileLayer/@Area2D@26050" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26051" to="CoinTileLayer/@Area2D@26051" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26052" to="CoinTileLayer/@Area2D@26052" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26053" to="CoinTileLayer/@Area2D@26053" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26054" to="CoinTileLayer/@Area2D@26054" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26055" to="CoinTileLayer/@Area2D@26055" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26056" to="CoinTileLayer/@Area2D@26056" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26057" to="CoinTileLayer/@Area2D@26057" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26058" to="CoinTileLayer/@Area2D@26058" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26059" to="CoinTileLayer/@Area2D@26059" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26060" to="CoinTileLayer/@Area2D@26060" method="_on_body_entered"]
+[connection signal="body_entered" from="CoinTileLayer/@Area2D@26061" to="CoinTileLayer/@Area2D@26061" method="_on_body_entered"]

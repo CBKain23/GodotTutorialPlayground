@@ -30,6 +30,9 @@ func _process(delta: float) -> void:
 		sprite.flip_h = velocity.x < 0
 	
 	_manage_animation()
+
+
+
 func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
@@ -43,8 +46,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = lerp(velocity.x, 0.0, (braking * delta))
 	
-	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y = -jump_force
+	jump()
 	
 	move_and_slide()
 
@@ -66,19 +68,23 @@ func take_damage(amount : int):
 	OnUpdateHealth.emit(health)
 	_damage_flash()
 	
-	#Audio.play_sound(Audio.take_damage_sfx, %AudioStreamPlayer)
-	Audio.play_sound(Audio.take_damage_sfx)
+	
+	%AudioStreamPlayer.stream = Audio.take_damage_sfx
+	%AudioStreamPlayer.play()
 	
 	if health <= 0:
 		GameManager.call_deferred("game_over")
 
-
+func jump():
+		if Input.is_action_pressed("jump") and is_on_floor():
+			velocity.y = -jump_force
 
 func increase_score(amount: int):
 	print("increase score by " + str(amount))
 	GameManager.score += amount
 	OnUpdateScore.emit(GameManager.score)
-	#Audio.play_sound(Audio.coin_sfx, %AudioStreamPlayer)
+	%AudioStreamPlayer.stream = Audio.coin_sfx
+	%AudioStreamPlayer.play()
 
 
 func _damage_flash():

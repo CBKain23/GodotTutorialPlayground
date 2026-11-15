@@ -7,7 +7,7 @@ var hearts : Array = []
 
 @onready var score_text : Label = %ScoreText
 
-@onready var player = get_parent()
+@export var player : CharacterBody2D
 
 func _ready() -> void:
 	

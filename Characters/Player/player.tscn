@@ -5,9 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://382x4qlwoiii" path="res://Assets/Images/Characters/Player/alienGreen_jump.png" id="2_xf5fp"]
 [ext_resource type="Texture2D" uid="uid://bss0ikwm1wboq" path="res://Assets/Images/Characters/Player/alienGreen_walk1.png" id="3_osktb"]
 [ext_resource type="Texture2D" uid="uid://dspd8rqdeodwx" path="res://Assets/Images/Characters/Player/alienGreen_walk2.png" id="4_7vev3"]
-[ext_resource type="Script" uid="uid://bqd5vfxtkdh2v" path="res://Scripts/Characters/Player/player_ui.gd" id="6_7vev3"]
 [ext_resource type="Script" uid="uid://8gfpq4r6jmr" path="res://Scripts/player_camera.gd" id="6_klx3t"]
-[ext_resource type="PackedScene" uid="uid://c47wnv5n1ikj" path="res://Characters/Player/heart.tscn" id="8_klx3t"]
+[ext_resource type="PackedScene" uid="uid://djx5h42ocjmw4" path="res://Characters/Player/player_ui.tscn" id="7_7vev3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
 animations = [{
@@ -43,11 +42,6 @@ animations = [{
 radius = 56.0
 height = 192.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_osktb"]
-font_size = 24
-shadow_size = 13
-shadow_color = Color(0, 0, 0, 1)
-
 [node name="Player" type="CharacterBody2D" unique_id=1574511499 groups=["Player"]]
 scale = Vector2(0.7, 0.7)
 collision_layer = 2
@@ -68,32 +62,15 @@ shape = SubResource("CapsuleShape2D_nfnr1")
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=214166694]
 unique_name_in_owner = true
 offset = Vector2(0, -255)
-zoom = Vector2(1.105, 1.105)
+zoom = Vector2(0.895, 0.895)
 script = ExtResource("6_klx3t")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=617793856]
 unique_name_in_owner = true
+max_polyphony = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906470910]
 root_node = NodePath("../AudioStreamPlayer")
 
-[node name="PlayerUI" type="CanvasLayer" parent="." unique_id=678833035]
-script = ExtResource("6_7vev3")
-
-[node name="HealthContainer" type="HBoxContainer" parent="PlayerUI" unique_id=110502114]
-unique_name_in_owner = true
-offset_right = 200.0
-offset_bottom = 64.0
-
-[node name="Heart" parent="PlayerUI/HealthContainer" unique_id=1579208801 instance=ExtResource("8_klx3t")]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="ScoreText" type="Label" parent="PlayerUI" unique_id=1456919624]
-unique_name_in_owner = true
-offset_left = 8.0
-offset_top = 64.0
-offset_right = 456.0
-offset_bottom = 98.0
-text = "Score: TEST"
-label_settings = SubResource("LabelSettings_osktb")
+[node name="PlayerUI" parent="." unique_id=1468839750 node_paths=PackedStringArray("player") instance=ExtResource("7_7vev3")]
+player = NodePath("..")

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://djx5h42ocjmw4"]
+
+[ext_resource type="Script" uid="uid://bqd5vfxtkdh2v" path="res://Scripts/Characters/Player/player_ui.gd" id="1_i6sif"]
+[ext_resource type="PackedScene" uid="uid://c47wnv5n1ikj" path="res://Characters/Player/heart.tscn" id="2_nra2j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_osktb"]
+font_size = 24
+shadow_size = 13
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="PlayerUI" type="CanvasLayer" unique_id=1468839750]
+script = ExtResource("1_i6sif")
+
+[node name="HealthContainer" type="HBoxContainer" parent="." unique_id=1465271417]
+unique_name_in_owner = true
+offset_right = 200.0
+offset_bottom = 72.0
+
+[node name="Heart" parent="HealthContainer" unique_id=1579208801 instance=ExtResource("2_nra2j")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ScoreText" type="Label" parent="." unique_id=401605482]
+unique_name_in_owner = true
+offset_left = 8.0
+offset_top = 64.0
+offset_right = 456.0
+offset_bottom = 98.0
+text = "Score: TEST"
+label_settings = SubResource("LabelSettings_osktb")
