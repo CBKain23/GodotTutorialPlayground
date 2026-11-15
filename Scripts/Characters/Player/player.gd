@@ -14,7 +14,13 @@ signal OnUpdateScore(score : int)
 
 @export var gravity : float = 600.0
 
-@export var jump_force : float = 400.0
+@export var jump_force : float = 500.0
+
+var double_jump_force : float = jump_force * 0.8
+
+var double_jump_limit : int = 1
+
+var jump_count : int = 0
 
 var health : int = GameManager.playerHealth
 
@@ -47,6 +53,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = lerp(velocity.x, 0.0, (braking * delta))
 	
 	jump()
+	resetJumpCount()
 	
 	move_and_slide()
 
@@ -75,9 +82,25 @@ func take_damage(amount : int):
 	if health <= 0:
 		GameManager.call_deferred("game_over")
 
+func increaseJumpCount():
+	
+	jump_count += 1
+
+func resetJumpCount():
+	if is_on_floor():
+		jump_count = 0
+
 func jump():
-		if Input.is_action_pressed("jump") and is_on_floor():
-			velocity.y = -jump_force
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = -jump_force
+		jump_count += 1
+		
+	
+	if Input.is_action_just_pressed("jump") and not is_on_floor() and not jump_count >= double_jump_limit:
+		velocity.y = -double_jump_force
+		jump_count  += 1
+		
+	
 
 func increase_score(amount: int):
 	print("increase score by " + str(amount))
