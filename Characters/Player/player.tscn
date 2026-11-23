@@ -67,7 +67,7 @@ script = ExtResource("6_klx3t")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=617793856]
 unique_name_in_owner = true
-max_polyphony = 15
+max_polyphony = 10
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1906470910]
 root_node = NodePath("../AudioStreamPlayer")

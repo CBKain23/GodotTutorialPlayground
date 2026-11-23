@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/coin.ogg-de618130ab570c22a43c0908c1511c63.ogg
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4

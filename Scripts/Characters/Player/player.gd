@@ -77,6 +77,7 @@ func take_damage(amount : int):
 	
 	
 	%AudioStreamPlayer.stream = Audio.take_damage_sfx
+	%AudioStreamPlayer.volume_db = Audio.damageVol
 	%AudioStreamPlayer.play()
 	
 	if health <= 0:
@@ -99,6 +100,7 @@ func jump():
 	if Input.is_action_just_pressed("jump") and not is_on_floor() and not jump_count >= double_jump_limit:
 		velocity.y = -double_jump_force
 		%AudioStreamPlayer.stream = Audio.doubleJumpSFX
+		%AudioStreamPlayer.volume_db = Audio.jumpVol
 		%AudioStreamPlayer.play()
 		jump_count  += 1
 		
@@ -109,6 +111,7 @@ func increase_score(amount: int):
 	GameManager.score += amount
 	OnUpdateScore.emit(GameManager.score)
 	%AudioStreamPlayer.stream = Audio.coin_sfx
+	%AudioStreamPlayer.volume_db = Audio.coinVol
 	%AudioStreamPlayer.play()
 
 
