@@ -2,9 +2,9 @@ extends Node
 
 var score: int = 0
 
-var scene_to_load: PackedScene = preload("uid://c7hck0urcu2cc")
+var scene_to_load: PackedScene = load("uid://c7hck0urcu2cc")
 
-var player: CharacterBody2D
+var player: CharacterBody2D = null
 
 var playerHealth: int = 5
 

@@ -34,22 +34,21 @@ var move_input: float
 func _process(delta: float) -> void:
 	if velocity.x != 0:
 		sprite.flip_h = velocity.x < 0
-
-	_manage_animation()
+	
+	manage_animation()
 
 
 func _physics_process(delta: float) -> void:
 	move_input = Input.get_axis("move_left", "move_right")
 
-	#velocity.x = move_input * move_speed
 	if move_input != 0:
 		velocity.x = lerp(velocity.x, (move_input * move_speed), (acceleration * delta))
 	else:
 		velocity.x = lerp(velocity.x, 0.0, (braking * delta))
-
+	
 	jump()
 	resetJumpCount()
-
+	
 	move_and_slide()
 
 
@@ -57,7 +56,7 @@ func _ready() -> void:
 	GameManager.setPlayer(self)
 
 
-func _manage_animation():
+func manage_animation():
 	if not is_on_floor():
 		sprite.play("jump")
 	elif move_input != 0:
@@ -69,12 +68,8 @@ func _manage_animation():
 func take_damage(amount: int):
 	health -= amount
 	OnUpdateHealth.emit(health)
-	_damage_flash()
-
-	%AudioStreamPlayer.stream = Audio.take_damage_sfx
-	%AudioStreamPlayer.volume_db = Audio.damageVol
-	%AudioStreamPlayer.play()
-
+	damage_flash()
+	playAudio(Audio.take_damage_sfx, Audio.damageVol)
 	if health <= 0:
 		GameManager.call_deferred("game_over")
 
@@ -82,38 +77,34 @@ func take_damage(amount: int):
 func increaseJumpCount():
 	jump_count += 1
 
-
 func resetJumpCount():
 	if is_on_floor():
 		jump_count = 0
-
 
 func jump():
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_force
 		jump_count += 1
 
-	if (
-		Input.is_action_just_pressed("jump") and not is_on_floor()
-		and not jump_count >= double_jump_limit
-	):
+	if (Input.is_action_just_pressed("jump") and not is_on_floor() and not jump_count >= double_jump_limit):
 		velocity.y = -double_jump_force
-		%AudioStreamPlayer.stream = Audio.doubleJumpSFX
-		%AudioStreamPlayer.volume_db = Audio.jumpVol
-		%AudioStreamPlayer.play()
+		playAudio(Audio.doubleJumpSFX, Audio.jumpVol)
 		jump_count += 1
-
 
 func increase_score(amount: int):
 	print("increase score by " + str(amount))
 	GameManager.score += amount
 	OnUpdateScore.emit(GameManager.score)
-	%AudioStreamPlayer.stream = Audio.coin_sfx
-	%AudioStreamPlayer.volume_db = Audio.coinVol
+	playAudio(Audio.coin_sfx, Audio.coinVol)
+
+
+func playAudio(stream: AudioStream, volume: float):
+	%AudioStreamPlayer.stream = stream
+	%AudioStreamPlayer.volume_db = volume
 	%AudioStreamPlayer.play()
 
 
-func _damage_flash():
+func damage_flash():
 	sprite.modulate = Color.RED
 	await get_tree().create_timer(0.05).timeout
 	sprite.modulate = Color.WHITE

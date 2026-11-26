@@ -78,3 +78,4 @@ player = NodePath("..")
 
 [node name="Gravity" parent="." unique_id=1086284823 node_paths=PackedStringArray("body") instance=ExtResource("8_klx3t")]
 body = NodePath("..")
+weight = 1.5
