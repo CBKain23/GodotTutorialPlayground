@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dspd8rqdeodwx" path="res://Assets/Images/Characters/Player/alienGreen_walk2.png" id="4_7vev3"]
 [ext_resource type="Script" uid="uid://8gfpq4r6jmr" path="res://Scripts/player_camera.gd" id="6_klx3t"]
 [ext_resource type="PackedScene" uid="uid://djx5h42ocjmw4" path="res://Characters/Player/player_ui.tscn" id="7_7vev3"]
+[ext_resource type="PackedScene" uid="uid://d4b4rbnhh0fxj" path="res://Objects/Components/gravity.tscn" id="8_klx3t"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nfnr1"]
 animations = [{
@@ -74,3 +75,6 @@ root_node = NodePath("../AudioStreamPlayer")
 
 [node name="PlayerUI" parent="." unique_id=1468839750 node_paths=PackedStringArray("player") instance=ExtResource("7_7vev3")]
 player = NodePath("..")
+
+[node name="Gravity" parent="." unique_id=1086284823 node_paths=PackedStringArray("body") instance=ExtResource("8_klx3t")]
+body = NodePath("..")
